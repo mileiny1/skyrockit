@@ -1,6 +1,32 @@
+const { application } = require('express');
 const mongoose = require('mongoose');
 
-const userSchema = mongoose.Schema({
+const applicationSchema = new mongoose.Schema({
+  company: {
+    type: String,
+    required: true,
+  },
+
+  title: {
+    type: String,
+    required: true,
+  },
+  notes: {
+    type: String,
+  },
+  postingLink: {
+    type: String,
+  },
+
+  status: {
+    type: String,
+    enum: ['interested', 'applied', 'interviewing', 'rejected', 'accepted'],
+  },
+  application: [applicationSchema],
+
+});
+
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
