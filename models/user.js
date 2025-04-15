@@ -1,4 +1,3 @@
-const { application } = require('express');
 const mongoose = require('mongoose');
 
 const applicationSchema = new mongoose.Schema({
@@ -6,7 +5,6 @@ const applicationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   title: {
     type: String,
     required: true,
@@ -17,13 +15,10 @@ const applicationSchema = new mongoose.Schema({
   postingLink: {
     type: String,
   },
-
   status: {
     type: String,
     enum: ['interested', 'applied', 'interviewing', 'rejected', 'accepted'],
   },
-  application: [applicationSchema],
-
 });
 
 const userSchema = new mongoose.Schema({
